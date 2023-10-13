@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<title itemprop="name"> Maze Generator Update: Adding Smart Column Generation | negleft 
+</title>
+<meta name="description" content="Some updates for this asset" />
+<meta property="og:title" content="Maze Generator Update: Adding Smart Column Generation | negleft" />
+<meta name="twitter:title" content="Maze Generator Update: Adding Smart Column Generation | negleft" />
+<meta itemprop="name" content="Maze Generator Update: Adding Smart Column Generation | negleft" />
+<meta name="application-name" content="Maze Generator Update: Adding Smart Column Generation | negleft" />
+<meta property="og:description"
+      content="Some updates for this asset" />
+<meta property="og:site_name" content="negleft" />
+<meta property="og:url" content="https://negleft.com/posts/mazegenerator/" />
+<meta property="og:locale" content="en">
+<meta property="og:image" content="/assets/images/featured/maze.png" />
+<meta property="og:image:secure_url" content="https://negleft.com/assets/images/featured/maze.png" />
+<meta property="og:type" content="article" />
+
+<script>
+    
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+
+
+
+<link rel="stylesheet" href="/css/style.min.9a429de0074bb03b54a5dae5ec7013170c72f4d11103257e4b1ae0985e52da3d.css" integrity="sha256-mkKd4AdLsDtUpdrl7HATFwxy9NERAyV+SxrgmF5S2j0=" />
+
+    
+</head>
+
+<body class="bg-zinc-100 dark:bg-gray-800">
+    <div class="top-0 z-50 w-full text-gray-200 bg-gray-900 border-2 border-gray-900 md:sticky border-b-stone-200/10 " >
+    <div x-data="{ open: false }"
+         class="flex flex-col max-w-full px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+        <div class="flex flex-row items-center justify-between p-4">
+            <a href="/" class="flex text-gray-100 transition duration-1000 ease-in-out group">
+                <img src="/images/site-logo.svg"
+                     class="transition-opacity h-9 w-9 group-hover:opacity-50 group-focus:opacity-70"
+                     alt="negleft Logo" />
+                <div
+                     class="mt-1 ml-3 text-xl font-black tracking-tight text-gray-100 uppercase transition-colors group-hover:text-gray-400/60">
+                    negleft</div>
+            </a>
+            <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open" role="navigation" aria-expanded="false" aria-label="Main" aria-controls="menuItems">
+                <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                    <path x-show="!open" fill-rule="evenodd"
+                          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                          clip-rule="evenodd"></path>
+                    <path x-show="open" fill-rule="evenodd"
+                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <nav :class="{'flex': open, 'hidden': !open}"
+             class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline"
+                href="https://negleft.com/kia/" title="K.I.A">
+                K.I.A
+            </a>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline"
+                href="https://negleft.com/assets/" title="Assets">
+                Assets
+            </a>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline"
+                href="https://play.google.com/store/apps/dev?id=8876200567875066241" title="Mobile Games">
+                Mobile Games
+            </a>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline"
+                href="https://negleft.com/posts/" title="More">
+                More
+            </a>
+            
+            
+            
+            <a class="px-4 py-2 mt-2 text-sm font-semibold rounded-lg md:mt-0 md:ml-4 hover:text-white focus:text-white hover:bg-primary-600 focus:bg-primary-700 focus:outline-none focus:shadow-outline"
+                href="https://negleft.com/contact/" title="Contact">
+                Contact
+            </a>
+            
+            
+            
+            <button id="theme-toggle" type="button"
+                    class="p-2 text-sm text-gray-500 rounded-lg md: dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 md:ml-2 max-w-5 xs:hidden">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z">
+                    </path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                     aria-label="Dark or Light Mode" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                          fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+            
+        </nav>
+    </div>
+</div>
+    
+<article>
+  <header class="mb-4" style="position: relative;">
+    
+    
+          
+          
+          
+          
+      <img src="/../assets/images/featured/maze_hub65eaf2ba666456c5df62a036bfa0778_2627514_1500x0_resize_q80_h2_box_3.webp" alt="Background Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+    
+    
+
+    <div class="opacity-control" style="background-color: rgba(0, 0, 0, .7);">
+        <span class="py-96">
+            <h1 class="py-16 text-5xl font-black text-center text-white capitalize">
+                
+                  Maze Generator Update: Adding Smart Column Generation
+                
+            </h1>
+        </span>
+    </div>
+</header>
+
+  <div class="max-w-2xl px-6 pt-6 pb-16 mx-auto prose dark:prose-invert dark:text-white">
+    <p>A lil info: Maze Generator is a system for Unity 3D game engine that uses the DFS algorithm to generate mazes. This system also has a pathfinding system that also uses the same algorithm just in a &ldquo;reverse&rdquo; way.</p>
+<p>🌟 <strong>Exciting Update Alert</strong> 🌟</p>
+<p>This new update brings some fantastic enhancements to our Maze Generator system. We&rsquo;re thrilled to introduce the brand-new <strong>Column Generation System</strong>!</p>
+<p><strong>What&rsquo;s New?</strong></p>
+<ul>
+<li>
+<p><strong>Column Generation:</strong> Now, every wall comes to life with the addition of a column at its end, creating a more visually engaging and dynamic maze experience.</p>
+</li>
+<li>
+<p><strong>Smart Column Generation:</strong> Taking things up a notch, we&rsquo;ve introduced smart column generation. Here, a column is not just placed at the end of every wall, but it&rsquo;s also strategically positioned at every wall corner. The result? An even more captivating maze that not only challenges your navigation skills but also makes the environment more realistic and aesthetically pleasing.</p>
+</li>
+</ul>
+<p>If you&rsquo;re not quite sure what this all means, we invite you to try our demo below. It&rsquo;s the best way to experience these new features and see how they elevate the maze generation and exploration experience. Prepare to be amazed!</p>
+<h2 id="demo">Demo</h2>
+
+
+
+
+
+<div class="video-container">
+  <iframe src="https://i.simmer.io/@negleft/mazegeneratordemo" width="100%" height="%!f(string=56)%"></iframe>
+</div>
+
+<style>
+  .video-container {
+    position: relative;
+    padding-bottom: 56%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
+
+<p><strong>Note:</strong> If you encounter any issues while loading the player, please ensure that none of your browser extensions are blocking it.</p>
+<h3 id="get-it-here">Get it here</h3>
+<style>
+    .iframe-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;  
+    }
+    
+    .iframe-container iframe {
+      max-width: 100%;
+    }
+  </style>
+  
+  <div class="iframe-container">
+    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/27485/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+  </div>
+
+  </div>
+</article>
+
+    
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<script src="/js/darkmode.js" defer></script>
+<footer class="bg-gray-900">
+    <div class="max-w-md px-4 py-12 mx-auto overflow-hidden sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+        <p class="mt-8 text-base text-center text-gray-400">
+            I can be also be reached on these platforms.</p>
+        <div class="flex justify-center mt-8 space-x-6">
+            
+            
+            
+            <a href="https://x.com/@_negleft" class="text-gray-400 hover:text-gray-300">
+                <span class="sr-only">Twitter</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                          d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+            </a>
+            
+            
+            
+            <a href="https://youtube.com/@negleft" class="text-gray-400 hover:text-gray-300">
+                <span class="sr-only">YouTube</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd"  d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.441 16.892c-2.102.144-6.784.144-8.883 0-2.276-.156-2.541-1.27-2.558-4.892.017-3.629.285-4.736 2.558-4.892 2.099-.144 6.782-.144 8.883 0 2.277.156 2.541 1.27 2.559 4.892-.018 3.629-.285 4.736-2.559 4.892zm-6.441-7.234l4.917 2.338-4.917 2.346v-4.684z" clip-rule="evenodd" />
+                </svg>
+                
+            </a>
+            
+        </div>
+        <p class="mt-8 text-base text-center text-gray-400">&copy; 2023
+            negleft. All rights
+            reserved.</p>
+        
+    </div>
+</footer>
+</body>
+
+</html>
