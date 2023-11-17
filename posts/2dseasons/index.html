@@ -190,20 +190,52 @@
 <p><strong>Note:</strong> If you encounter any issues while loading the player, please ensure that none of your browser extensions are blocking it.</p>
 <h3 id="get-it-here">Get it here</h3>
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/96133/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/96133\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/96133/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 
   </div>
 </article>

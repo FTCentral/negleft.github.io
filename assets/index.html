@@ -160,125 +160,381 @@
 
   <div class="max-w-2xl px-6 pt-6 pb-16 mx-auto prose dark:prose-invert dark:text-white">
     <p><style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/215552/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/215552\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/215552/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/102311/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/102311\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/102311/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/72470/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/72470\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/72470/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/96133/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/96133\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/96133/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/88209/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/88209\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/88209/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/27485/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/27485\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/27485/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/196146/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/196146\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/196146/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="unity-iframe">
   
-  <div class="iframe-container">
-    <iframe src="https://assetstore.unity.com/linkmaker/embed/package/81753/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
-  </div></p>
+      <div class="clickable-div" onclick="redirectToUnityStore('https:\/\/assetstore.unity.com\/linkmaker\/embed\/package\/81753\/widget-wide')"></div>
+  
+  <iframe src="https://assetstore.unity.com/linkmaker/embed/package/81753/widget-wide" style="width:600px; height:130px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+</p>
 
   </div>
 </article>

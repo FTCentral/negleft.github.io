@@ -440,20 +440,50 @@ sliderJQuery(function( $ ) {
 <h2 id="play-the-demo-and-wishlist-now">Play The Demo And Wishlist Now</h2>
 <p>Don&rsquo;t miss out on updates and release notifications. Add K.I.A to your Steam wishlist today!</p>
 <style>
-    .iframe-container {
+  .iframe-container {
       display: flex;
       justify-content: center;
       margin-bottom: 20px;  
-    }
-    
-    .iframe-container iframe {
+      position: relative;  
+  }
+
+  .iframe-container iframe {
       max-width: 100%;
-    }
-  </style>
+  }
+
+   
+  .clickable-div {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;  
+  }
+</style>
+
+<div class="iframe-container" id="">
   
-  <div class="iframe-container">
-    <iframe src="https://store.steampowered.com/widget/2300930/" style="width:100%; height:190px; border:0;"></iframe>
-  </div>
+  <iframe src="https://store.steampowered.com/widget/2300930/" style="width:100%; height:190px; border:0;"></iframe>
+</div>
+
+<script>
+  function redirectToUnityStore(src) {
+      var unityStoreUrl = "https://assetstore.unity.com/packages/slug/" + extractIdFromSrc(src);
+      window.location.href = unityStoreUrl;
+  }
+
+  function extractIdFromSrc(src) {
+      var regex = /package\/(\d+)\/widget-wide/;
+      var match = src.match(regex);
+      if (match && match[1]) {
+          return match[1];
+      }
+      return null;
+  }
+</script>
+
 <h2 id="download-press-kit">Download Press Kit</h2>
 <p><a href="https://drive.google.com/drive/folders/105mRSKs0Iif9qmb2ZPBsDafnoPgJHAbA?usp=drive_link">Click here to download</a></p>
 <!-- raw HTML omitted -->
