@@ -6,7 +6,16 @@
     <description>Recent content in webGL on negleft</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://negleft.com/tags/webgl/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Apr 2024 11:10:36 +0800</lastBuildDate><atom:link href="https://negleft.com/tags/webgl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FreeWorld - Multiplayer Starter Kit</title>
+      <link>https://negleft.com/posts/freeworld/</link>
+      <pubDate>Mon, 08 Apr 2024 11:10:36 +0800</pubDate>
+      
+      <guid>https://negleft.com/posts/freeworld/</guid>
+      <description>Ultimate solution for jumpstarting multiplayer projects</description>
+    </item>
+    
     <item>
       <title>game assets</title>
       <link>https://negleft.com/assets/</link>
