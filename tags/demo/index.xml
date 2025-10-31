@@ -6,88 +6,70 @@
     <description>Recent content in Demo on negleft</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Apr 2024 11:10:36 +0800</lastBuildDate><atom:link href="https://negleft.com/tags/demo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Apr 2024 11:10:36 +0800</lastBuildDate>
+    <atom:link href="https://negleft.com/tags/demo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FreeWorld - Multiplayer Starter Kit</title>
       <link>https://negleft.com/posts/freeworld/</link>
       <pubDate>Mon, 08 Apr 2024 11:10:36 +0800</pubDate>
-      
       <guid>https://negleft.com/posts/freeworld/</guid>
       <description>Ultimate solution for jumpstarting multiplayer projects</description>
     </item>
-    
     <item>
       <title>game assets</title>
       <link>https://negleft.com/assets/</link>
       <pubDate>Wed, 11 Oct 2023 00:00:00 +0000</pubDate>
-      
       <guid>https://negleft.com/assets/</guid>
-      <description></description>
+      <description> </description>
     </item>
-    
     <item>
       <title>Agents of steer - Demo</title>
       <link>https://negleft.com/posts/agentsofsteer/</link>
       <pubDate>Tue, 10 Oct 2023 11:10:36 +0800</pubDate>
-      
       <guid>https://negleft.com/posts/agentsofsteer/</guid>
       <description>Demo of agents of steer</description>
     </item>
-    
     <item>
       <title>ConnectPeeps - Hypercasual puzzle prototype</title>
       <link>https://negleft.com/posts/connectpeeps/</link>
       <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://negleft.com/posts/connectpeeps/</guid>
       <description>Hypercasual puzzle prototype</description>
     </item>
-    
     <item>
       <title>Boat Ride Demo and Update</title>
       <link>https://negleft.com/posts/boatridedemo/</link>
       <pubDate>Thu, 02 Jun 2022 11:10:36 +0800</pubDate>
-      
       <guid>https://negleft.com/posts/boatridedemo/</guid>
       <description>Demo for my assetstore asset</description>
     </item>
-    
     <item>
       <title>2D Seasons - Day Night Cycle and Weather</title>
       <link>https://negleft.com/posts/2dseasons/</link>
       <pubDate>Tue, 15 Mar 2022 11:10:36 +0800</pubDate>
-      
       <guid>https://negleft.com/posts/2dseasons/</guid>
       <description>Demo of 2D Seasons</description>
     </item>
-    
     <item>
       <title>EZDraw - Runtime mesh drawing system</title>
       <link>https://negleft.com/posts/ezdraw/</link>
       <pubDate>Tue, 15 Mar 2022 11:10:36 +0800</pubDate>
-      
       <guid>https://negleft.com/posts/ezdraw/</guid>
       <description>Demo of EZDraw</description>
     </item>
-    
     <item>
       <title>Maze Generator Update: Adding Smart Column Generation</title>
       <link>https://negleft.com/posts/mazegenerator/</link>
       <pubDate>Sun, 02 May 2021 11:10:36 +0800</pubDate>
-      
       <guid>https://negleft.com/posts/mazegenerator/</guid>
       <description>Demo of a DFS based maze generator</description>
     </item>
-    
     <item>
       <title>K.I.A</title>
       <link>https://negleft.com/kia/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://negleft.com/kia/</guid>
-      <description>K.I.A is an old-school hard stealth first-person shooter game that doesn&amp;rsquo;t take itself too seriously. Dive into the world of espionage, sabotage, and cunning heists as you play the role of Jack, a war veteran imprisoned for his past war crimes. An enigmatic agent from K.I.A offers him freedom in exchange for his unparalleled skills.
-Early Development Montage Gameplay - Tutorial level Screenshots from K.I.A Story Plot Jack&amp;rsquo;s journey begins when he gets an unexpected visit from a K.</description>
+      <description>K.I.A is an old-school hard stealth first-person shooter game that doesn&amp;rsquo;t take itself too seriously. Dive into the world of espionage, sabotage, and cunning heists as you play the role of Jack, a war veteran imprisoned for his past war crimes. An enigmatic agent from K.I.A offers him freedom in exchange for his unparalleled skills.&#xA;Early Development Montage Gameplay - Tutorial level Screenshots from K.I.A Story Plot Jack&amp;rsquo;s journey begins when he gets an unexpected visit from a K.</description>
     </item>
-    
   </channel>
 </rss>
