@@ -1,0 +1,94 @@
+{{- $id := printf "gallery-%d" .Ordinal -}}
+{{- $autoSlide := .Get "auto-slide" | default "0" -}}
+{{- $label := .Get "label" | default "K.I.A gameplay screenshot" -}}
+{{- $files := slice -}}
+{{- with .Get "dir" -}}
+  {{- range resources.Match (print "**" (strings.TrimSuffix "/" .) "/*") -}}
+    {{- $files = $files | append (.Resize "1600x webp q80") -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="gallery-slider not-prose" id="{{ $id }}" data-autoslide="{{ $autoSlide }}"
+     role="region" aria-roledescription="carousel" aria-label="{{ $label }}s">
+  <div class="gallery-slider__viewport">
+    <ul class="gallery-slider__track">
+      {{- range $i, $file := $files }}
+      <li class="gallery-slider__slide" aria-roledescription="slide" aria-label="{{ add $i 1 }} of {{ len $files }}">
+        <img src="{{ $file.RelPermalink }}"
+             alt="{{ $label }} {{ add $i 1 }}"
+             width="{{ $file.Width }}" height="{{ $file.Height }}"
+             loading="{{ if lt $i 2 }}eager{{ else }}lazy{{ end }}" decoding="async">
+      </li>
+      {{- end }}
+    </ul>
+
+    <button type="button" class="gallery-slider__nav gallery-slider__nav--prev" aria-label="Previous screenshot">&lt;</button>
+    <button type="button" class="gallery-slider__nav gallery-slider__nav--next" aria-label="Next screenshot">&gt;</button>
+    <span class="gallery-slider__counter" aria-hidden="true">01 / {{ printf "%02d" (len $files) }}</span>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.getElementById('{{ $id }}');
+    if (!root) return;
+    var track = root.querySelector('.gallery-slider__track');
+    var slides = track.children;
+    var counter = root.querySelector('.gallery-slider__counter');
+    var total = slides.length;
+    var index = 0;
+    var delay = parseInt(root.dataset.autoslide, 10) || 0;
+    var timer = null;
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+    function preload(i) {
+      var img = slides[(i + total) % total] && slides[(i + total) % total].querySelector('img');
+      if (img) img.loading = 'eager';
+    }
+
+    function go(i) {
+      if (!total) return;
+      index = (i + total) % total;
+      // Percent-based offset keeps the slide aligned at any window size.
+      track.style.transform = 'translateX(' + (-index * 100) + '%)';
+      counter.textContent = pad(index + 1) + ' / ' + pad(total);
+      preload(index + 1);
+      preload(index - 1);
+    }
+
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function start() {
+      stop();
+      if (delay && total > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        timer = setInterval(function () { go(index + 1); }, delay);
+      }
+    }
+
+    root.querySelector('.gallery-slider__nav--prev').addEventListener('click', function () { go(index - 1); start(); });
+    root.querySelector('.gallery-slider__nav--next').addEventListener('click', function () { go(index + 1); start(); });
+
+    root.addEventListener('mouseenter', stop);
+    root.addEventListener('mouseleave', start);
+    root.addEventListener('focusin', stop);
+    root.addEventListener('focusout', start);
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') { go(index - 1); }
+      if (e.key === 'ArrowRight') { go(index + 1); }
+    });
+
+    var startX = null;
+    track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
+    track.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+      startX = null;
+      start();
+    });
+
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+
+    go(0);
+    start();
+  })();
+</script>

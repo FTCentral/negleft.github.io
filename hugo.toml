@@ -1,0 +1,5 @@
+baseURL = 'https://negleft.com/'
+languageCode = 'en-us'
+title = 'negleft'
+theme = 'tailbliss'
+enableRobotsTXT = true

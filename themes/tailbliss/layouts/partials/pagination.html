@@ -1,0 +1,36 @@
+{{ $pag := $.Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<nav class="flex flex-wrap items-center justify-center gap-2" aria-label="Pagination">
+    {{ if $pag.HasPrev }}
+    <a href="{{ $pag.Prev.URL }}" rel="prev"
+       class="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-zinc-300 transition hover:border-primary-500/50 hover:text-primary-300">
+        &larr; Prev
+    </a>
+    {{ end }}
+
+    {{ $ellipsis := false }}
+    {{ range $pag.Pagers }}
+    {{ if eq . $pag }}
+    <span aria-current="page"
+          class="flex h-10 min-w-10 items-center justify-center rounded-full bg-primary-500 px-3 text-sm font-bold text-black shadow-glow-sm">
+        {{ .PageNumber }}
+    </span>
+    {{ else if and (ge .PageNumber (sub $pag.PageNumber 2)) (le .PageNumber (add $pag.PageNumber 2)) }}
+    <a href="{{ .URL }}"
+       class="flex h-10 min-w-10 items-center justify-center rounded-full border border-white/10 px-3 text-sm font-semibold text-zinc-300 transition hover:border-primary-500/50 hover:text-primary-300">
+        {{ .PageNumber }}
+    </a>
+    {{ else if not $ellipsis }}
+    {{ $ellipsis = true }}
+    <span class="px-2 text-zinc-600">&hellip;</span>
+    {{ end }}
+    {{ end }}
+
+    {{ if $pag.HasNext }}
+    <a href="{{ $pag.Next.URL }}" rel="next"
+       class="rounded-full border border-white/10 px-4 py-2 text-sm font-semibold text-zinc-300 transition hover:border-primary-500/50 hover:text-primary-300">
+        Next &rarr;
+    </a>
+    {{ end }}
+</nav>
+{{ end }}

@@ -1,0 +1,116 @@
+{{ define "main" }}
+<main class="overflow-hidden">
+
+    <!-- Hero: K.I.A showcase video -->
+    <section class="relative isolate flex min-h-[82vh] items-end overflow-hidden border-b border-white/5">
+        <div class="hero-video absolute inset-0 -z-20" aria-hidden="true">
+            {{ with resources.Get "images/featured/KIABanner.png" }}
+            {{ $hero := .Resize "1600x webp q80" }}
+            <img src="{{ $hero.RelPermalink }}"
+                 width="{{ $hero.Width }}" height="{{ $hero.Height }}"
+                 alt="" fetchpriority="high" decoding="async"
+                 class="absolute inset-0 h-full w-full object-cover opacity-30" />
+            {{ end }}
+            <iframe
+                src="https://www.youtube.com/embed/m90r-QZEuOQ?showinfo=0&modestbranding=1&enablejsapi=0&iv_load_policy=3&fs=0&controls=0&autoplay=1&mute=1&rel=0&cc_load_policy=0&start=4&loop=1&playlist=m90r-QZEuOQ&playsinline=1"
+                title="K.I.A gameplay showcase"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                tabindex="-1"
+                aria-hidden="true"></iframe>
+        </div>
+
+        <!-- Readability + neon glow overlays -->
+        <div class="absolute inset-0 -z-10 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_50%_110%,rgba(22,212,107,0.28)_0%,rgba(0,0,0,0)_65%)]"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-t from-black to-transparent"></div>
+
+        <!-- Whole hero links to the game page -->
+        <a href="{{ .Site.Params.mainVideo.url | default "/kia/" }}" class="absolute inset-0 z-10" aria-label="Explore {{ .Site.Params.mainVideo.heading | default "K.I.A" }}"></a>
+
+        <div class="pointer-events-none relative z-20 mx-auto w-full max-w-7xl px-4 pb-16 pt-44 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+            <p class="eyebrow flex items-center gap-3">
+                <span class="h-px w-10 bg-primary-500"></span>
+                {{ .Site.Params.mainVideo.eyebrow | default "Now in development" }}
+            </p>
+            <h1 class="sr-only">{{ .Site.Params.mainVideo.heading | default "K.I.A" }}</h1>
+            {{ with resources.Get "images/featured/KIALogo-dark.png" }}
+            {{ $logo := .Resize "1000x webp q90" }}
+            <img src="{{ $logo.RelPermalink }}"
+                 width="{{ $logo.Width }}" height="{{ $logo.Height }}"
+                 alt="K.I.A logo" fetchpriority="high" decoding="async"
+                 class="mt-4 w-full max-w-lg drop-shadow-[0_0_45px_rgba(22,212,107,0.45)]" />
+            {{ else }}
+            <div class="mt-5 font-display text-6xl font-bold uppercase tracking-tight text-white glow-text sm:text-8xl lg:text-9xl">
+                {{ .Site.Params.mainVideo.heading | default "K.I.A" }}<span class="text-primary-500">.</span>
+            </div>
+            {{ end }}
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-300 sm:text-xl">
+                {{ .Site.Params.mainVideo.tagline | default "An old-school hard stealth first-person shooter that doesn't take itself too seriously." }}
+            </p>
+            <span class="btn-primary mt-9">
+                {{ .Site.Params.mainVideo.cta | default "Explore the game" }}
+                <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+            </span>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="relative py-20 sm:py-28">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-4">
+                    <p class="eyebrow">01 — About</p>
+                    <h2 class="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                        {{ .Site.Params.P1.Heading }}
+                    </h2>
+                    <div class="mt-6 h-px w-16 bg-primary-500"></div>
+                </div>
+                <div class="lg:col-span-8">
+                    <div class="surface glow-ring p-7 sm:p-10">
+                        {{ range $i, $p := .Site.Params.P1.Content }}
+                        <p class="text-lg leading-relaxed text-zinc-300 {{ if $i }}mt-5{{ end }}">
+                            {{ $p.text }}
+                        </p>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="relative border-t border-white/5 py-20 sm:py-28">
+        <div class="absolute inset-0 bg-green-radial opacity-60"></div>
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+                <div class="lg:col-span-4">
+                    <p class="eyebrow">02 — Community</p>
+                    <h2 class="mt-4 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl">
+                        {{ .Site.Params.P2.Heading }}
+                    </h2>
+                    <div class="mt-6 h-px w-16 bg-primary-500"></div>
+                </div>
+                <div class="lg:col-span-8">
+                    <div class="surface border-primary-500/20 p-7 sm:p-10">
+                        {{ range $i, $p := .Site.Params.P2.Content }}
+                        <p class="text-lg leading-relaxed text-zinc-300 {{ if $i }}mt-5{{ end }}">
+                            {{ $p.text }}
+                        </p>
+                        {{ end }}
+
+                        <a href="https://discord.gg/CFavfcB6" target="_blank" rel="noopener" class="btn-primary mt-8">
+                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.099.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                            </svg>
+                            Join my Discord
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+{{ end }}

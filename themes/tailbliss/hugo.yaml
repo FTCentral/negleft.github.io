@@ -1,0 +1,211 @@
+baseURL: ''
+title: negleft
+languageCode: en-us
+DefaultContentLanguage: en
+enableEmoji: true
+enableGitInfo: true
+enableRobotsTXT: true
+canonifyURLs: true
+paginate: 9
+enableInlineShortcodes: true
+
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      linkifyProtocol: https
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer:
+        apostrophe: '&rsquo;'
+        disable: false
+        ellipsis: '&hellip;'
+        emDash: '&mdash;'
+        enDash: '&ndash;'
+        leftAngleQuote: '&laquo;'
+        leftDoubleQuote: '&ldquo;'
+        leftSingleQuote: '&lsquo;'
+        rightAngleQuote: '&raquo;'
+        rightDoubleQuote: '&rdquo;'
+        rightSingleQuote: '&rsquo;'
+    parser:
+      attribute:
+        block: false
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+      wrapStandAloneImageWithinParagraph: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+
+params:
+  author: negleft
+  authorimage: ../assets/images/global/author.webp
+  og_image: images/featured/KIABanner.png
+  moto: "A no one, nowhere making some games"
+  description: "Indie game developer creating K.I.A and Unity assets for game developers."
+  home_title: "negleft — Indie Game Developer, K.I.A & Unity Assets"
+  home_description: "Independent game developer behind K.I.A, an old-school hard stealth FPS, plus Unity assets, templates and tools for game developers."
+  twitter_handle: "@_negleft"
+  google_site_verification: ""
+  bing_site_verification: ""
+  disable_stay_uptodate: false
+
+  mainVideo:
+    image: "images/pages/KIALogo.png"
+    url: /kia/
+    eyebrow: "Now in development"
+    heading: "K.I.A"
+    tagline: "An old-school hard stealth first-person shooter that doesn't take itself too seriously. Sneak, sabotage and steal your way through a world of espionage."
+    cta: "Explore the game"
+  p1:
+    heading: "Who am I?"
+    image: "images/pages/our-mission.png"
+    content:
+      - text: I am an aspiring indie game developer with over a decade of experience in creating games and game-related content. Throughout my journey, I have engaged in extensive freelance work, developed my own mobile games, and collaborated with publishers to test numerous prototypes. You can explore the majority of my work on this website, and I welcome you to discover my portfolio. Currently, I am actively working on a project titled "K.I.A," and you can learn more about it above.
+  p2:
+    heading: "Join the community"
+    image: "images/pages/discord.jpg"
+    content:
+      - text: "Feel free to join my Discord community, where you can participate in game testing and engage in discussions related to game development."
+    discordInv: ""
+
+
+  social_media:
+    github:
+      enabled: false
+      url: ''
+    facebook:
+      enabled: false
+      url: ''
+    youtube:
+      enabled: true
+      url: 'https://youtube.com/@negleft'
+    twitter:
+      enabled: true
+      url: 'https://x.com/@_negleft'
+  
+
+menu:
+  main:
+    - identifier: KIA
+      name: K.I.A
+      url: /kia/
+      weight: 15
+    - identifier: Assets
+      name: Assets
+      url: /assets/
+      weight: 20
+    - identifier: mobilegames
+      name: Mobile Games
+      url: https://play.google.com/store/apps/dev?id=8876200567875066241
+      weight: 30
+    - identifier: more
+      name: More
+      url: /posts/
+      weight: 40
+
+    
+      
+    #- identifier: categories
+    #  pre: dropdown
+    #  name: Categories
+    #  weight: 30
+    #- identifier: dropdown
+    #  pre: complexdropdown
+    #  name: Dropdown
+    #  weight: 40
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 60
+  #categories:
+  #  - identifier: prose
+  #    name: Prose
+  #    url: /prose/
+  #    weight: 10
+  #  - identifier: about
+  #    name: About
+  #    url: /about/
+  #    weight: 20
+  #dropdown:
+  #  - identifier: appearance
+  #    pre: stars # can be stars, comments or piechart
+  #    name: Appearance
+  #    post: "Easy customization"
+  #    url: "#"
+  #    weight: 10
+  #  - identifier: comments
+  #    pre: comments # can be stars, comments or piechart
+  #    name: Comments
+  #    post: "Check your latest comments"
+  #    url: "#"
+  #   weight: 20
+  # - identifier: analytics
+  #    pre: piechart # can be stars, comments or piechart
+  #    name: Analytics
+  #    post: "Take a look at your statistics"
+  #    url: "#"
+  #    weight: 30
+  
+  footer:
+    - identifier: about
+      name: About
+      url: /about/
+      weight: 10
+    - identifier: blog
+      name: Blog
+      url: /categories/blog/
+      weight: 20
+    - identifier: news
+      name: News
+      url: /categories/news/
+      weight: 30
+    - identifier: prose
+      name: Prose
+      url: /prose/
+      weight: 40
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 50
+
+taxonomies:
+  category: Categories
+  tag: Tags
+
+privacy:
+  disqus:
+    disable: false
+  googleAnalytics:
+    anonymizeIP: true
+    disable: false
+    respectDoNotTrack: false
+    useSessionStorage: false
+  instagram:
+    disable: false
+    simple: false
+  twitter:
+    disable: false
+    enableDNT: false
+    simple: false
+  vimeo:
+    disable: false
+    enableDNT: false
+    simple: false
+  youtube:
+    disable: false
+    privacyEnhanced: true
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.104.0"
+
+
+  
